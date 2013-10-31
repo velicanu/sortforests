@@ -11,6 +11,7 @@ fi
 
 now="sortjob_$(date +"%m_%d_%Y__%H_%M_%S")"
 mkdir $now
+mkdir -p $2
 len=`wc -l $1 | awk '{print $1}'`
 filesperjob=$3
 cp sort.sh $now
