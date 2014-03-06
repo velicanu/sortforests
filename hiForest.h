@@ -69,6 +69,7 @@ class HiForest : public TNamed
   void FillOutput();						// Fill output forest  
   void LoadNoTrees();
   void ResetBooleans();
+  void GoCrazy();
 
 
   void Draw(Option_t* option){
