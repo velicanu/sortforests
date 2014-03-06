@@ -1345,6 +1345,20 @@ void HiForest::GoCrazy()
   if (hasGenParticleTree) genParticleTree   ->LoadBaskets(4000000000);
 
   
+  if (hasAkVs2PFJetTree) akVs2PFJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs3PFJetTree) akVs3PFJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs4PFJetTree) akVs4PFJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs5PFJetTree) akVs5PFJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs6PFJetTree) akVs6PFJetTree ->LoadBaskets(4000000000);
+
+  if (hasAkVs2CaloJetTree) akVs2CaloJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs3CaloJetTree) akVs3CaloJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs4CaloJetTree) akVs4CaloJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs5CaloJetTree) akVs5CaloJetTree ->LoadBaskets(4000000000);
+  if (hasAkVs6CaloJetTree) akVs6CaloJetTree ->LoadBaskets(4000000000);
+
+
+  
   cout<<"Note: GoCrazy called, letting trees decompress everything into RAM"<<endl;
 }
 
