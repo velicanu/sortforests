@@ -1,9 +1,4 @@
-if [[ -z "$1" ]]
-then
-  echo "Usage: ./psort.sh <input-list> <out-dir>"
-  exit 1
-fi
-if [[ -z "$2" ]]
+if [ $# -ne 2 ]
 then
   echo "Usage: ./psort.sh <input-list> <out-dir>"
   exit 1

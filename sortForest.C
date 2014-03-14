@@ -35,10 +35,10 @@ void sortForest(int startline = 0, string flist = "")
   // c->outf = outf;
   // c->SetOutputFile("null",true);
   c->SetOutputFile(Form("sortedHiForest_%d.root",startline));
-  c->tree->SetMaxTreeSize(4000000000);
+  // c->tree->SetMaxTreeSize(4000000000);
 
-  c->LoadNoTrees();
-  c->hasEvtTree = true;
+  // c->LoadNoTrees();
+  // c->hasEvtTree = true;
   //! loop through all the events once to construct the cent,vz pair array we'll be sorting over
   cout << "Constructing the cent:vz pair array..." << endl;
   for (int i=0;i<c->GetEntries();i++)
@@ -50,7 +50,7 @@ void sortForest(int startline = 0, string flist = "")
     evtCentVz.push_back(centvz);
     if (i%1000==0) cout <<i<<" / "<<c->GetEntries()<<" "<<c->setupOutput<<endl;
   }
-  c->ResetBooleans();
+  // c->ResetBooleans();
   //! Make the index array which will get sorted on first centrality
   int evtindecies[c->GetEntries()];
   for (int i=0;i<c->GetEntries();i++)
@@ -61,14 +61,15 @@ void sortForest(int startline = 0, string flist = "")
   cout << "Sorting the cent:vz pair array..." << " "<<c->setupOutput<<endl;
   //! Sort the index array first on the centrality bin, then on the vz of the entry at that index
   qsort (evtindecies, c->GetEntries(), sizeof(int), comparecentvz);
-  c->GoCrazy();
+  // c->GoCrazy();
   //! Now fill the tree in the new order
   cout << "Filling the tree in the sorted order..." << " "<<c->setupOutput<<endl;
   for (int i=0;i<c->GetEntries();i++)
   {
     c->GetEntry(evtindecies[i]);
     c->FillOutput();
-    if (i%1000==0) cout <<i<<" / "<<c->GetEntries()<<" "<<c->setupOutput<<endl;
+    if (i%10==0) cout <<i<<" / "<<c->GetEntries()<<" "<<c->setupOutput<<endl;
+     // cout <<i<<" / "<<c->GetEntries()<<" "<<c->setupOutput<<endl;
   }
 
   delete c;
